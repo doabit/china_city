@@ -42,6 +42,24 @@
       option --地区--
 ```
 
+### app/assets/javascripts/application.js
+
+```javascript
+$(function(){
+  $('.city-group').china_city()
+})
+```
+
+### 注意使用turbolinks时
+
+```coffee
+ready = ->
+  $('.city-group').china_city()
+ 
+$(document).ready(ready)
+$(document).on('page:load', ready)
+```
+
 请留意：所有选择框都要有 `city-select` class，并都包含于 class='city-group' 的 DOM 元素之下。
 
 选择后的值为国家地区编码，如深圳市的为 `440300`，可通过调用 `ChinaCity.get('440300')` 将编码转化为城市名称。
